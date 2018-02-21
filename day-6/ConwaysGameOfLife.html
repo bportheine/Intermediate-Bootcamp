@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <style>
+    .cell {
+      display: inline-block;
+      border: 1px solid black;
+      width: 4px;
+      height: 4px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script>
+    function makeGrid(width, height) {
+      var grid = []
+      for (let x = 0; x<width; x++) {
+        let column = new Array(height)
+        column.fill(0)
+        grid.push(column)
+      }
+      return grid
+    }
+
+    function renderGridToDOM(width, height) {
+      var container = document.getElementById('container')
+      for(var y = 0; y<height; y++) {
+        var row = document.createElement('div')
+        for(var x = 0; x<width; x++) {
+          var cell = document.createElement('div')
+          cell.classList.add('cell')
+          cell.id = 'cell-${x}-${y}'
+          row.appendChild(cell)
+        }
+        container.appendChild(row)
+      }
+    }
+    var boardWidth = 100
+    var boardHeight = 50
+    var initialGrid = makeGrid(boardWidth,boardHeight)
+
+    renderGridToDOM(boardWidth,boardHeight)
+    function initializeGrid(grid) {
+      var width = grid.length
+      var height = grid[0].length
+      for(var y = 0; y<height; y++) {
+        for(var x = 0; x<width; x++) {
+          grid[x][y] = Math.random() < 0.33 ? 1 : 0
+        }
+      }
+    }
+    function updateDOM(grid) {
+      var width = grid.length
+      var height = grid[0].length
+      for(var y = 0; y<height; y++) {
+        for(var x = 0; x<width; x++) {
+          var cell = document.getElementById('cell-${x}-${y}')
+          if (grid[x][y] === 1) {
+            cell.classList.add
+              constructor() {
+
+              }
+            }
+          }
+        }
+      }
+    }
+    initializeGrid(initialGrid)
+    updateDOM(initialGrid)
+  </script>
+
+</body>
+</html>
